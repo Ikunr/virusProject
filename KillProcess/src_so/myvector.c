@@ -100,11 +100,11 @@ myvector * init_vector()
 // 销毁myvector
 int destory_vector(myvector * vect,int index)
 {
-    for(int i = 0;i < index;i++)
+    for(int idx = 0; idx < index; idx++)
     {
         {
-            free(vect->nums[i]);
-            vect->nums[i] = NULL;
+            free(vect->nums[idx]);
+            vect->nums[idx] = NULL;
         }
     }
 
@@ -129,13 +129,14 @@ int push_vector(myvector * vect,const char * str)
         return -1;
     }
     
+    /* 扩容 */
     if(vect->count == vect->capacity - 2)
     {
         expansioncapa(vect);
     }
     
     
-    strcpy(vect->nums[vect->count++],str);
+    strcpy(vect->nums[vect->count++], str);
 
     return 1;
 }
@@ -153,18 +154,18 @@ int getcount_vector(myvector * vect)
     return vect->count;
 }
 
-// 获取数组的容量
+/* 获取数组的容量 */
 int getcapacity_vector(myvector * vect)
 {
     return vect->capacity;
 }
 
-// 检测容器是否寻找进程
+/* 检测容器是否有目标进程 */
 int ischeckpid(myvector * vect,const char * str)
 {
-    for(int i = 0;i < vect->count;i++)
+    for(int idx = 0; idx < vect->count; idx++)
     {
-        if((strcmp(vect->nums[i],str) == 0))
+        if((strcmp(vect->nums[idx], str) == 0))
         {
             return 1;
         }

@@ -16,8 +16,8 @@ int main(int argc,const char * argv[])
     }
     printf("命令行参数:%d\n",argc);
 
-    struct timeval begintime,endtime;
-    gettimeofday(&begintime,NULL);
+    struct timeval begintime, endtime;
+    gettimeofday(&begintime, NULL);
     
 #if 0
     // 判断进程路径是否是绝对路径
